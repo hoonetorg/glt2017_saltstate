@@ -22,6 +22,20 @@ galera_orchestrate__pcs:
     - require:
       - salt: galera_orchestrate__highstate
 
+#dirty fix of galera agent
+galera_orchestrate__pcs_fix_galera_agent:
+  salt.function:
+    - tgt: {{galeranodes}}
+    - tgt_type: compound
+    - expect_minions: True
+    - name: cmd.run
+    - arg:
+      - mkdir -p /usr/lib/ocf/resource.d/heartbeat/; curl -o /usr/lib/ocf/resource.d/heartbeat/galera https://raw.githubusercontent.com/hoonetorg/resource-agents/glt2017/heartbeat/galera; chmod 755 /usr/lib/ocf/resource.d/heartbeat/galera; chown root:root /usr/lib/ocf/resource.d/heartbeat/galera; restorecon /usr/lib/ocf/resource.d/heartbeat/galera
+    - saltenv: "glt2017"
+    - timeout: 1800
+    - require:
+      - salt: galera_orchestrate__pcs
+
 #salt-call --state-verbose='False' --timeout 1800 state.sls mysql.orchestration.server saltenv='glt2017'
 galera_orchestrate__mysql:
   salt.state:
@@ -31,4 +45,4 @@ galera_orchestrate__mysql:
     - saltenv: "glt2017"
     - timeout: 1800
     - require:
-      - salt: galera_orchestrate__pcs
+      - salt: galera_orchestrate__pcs_fix_galera_agent
