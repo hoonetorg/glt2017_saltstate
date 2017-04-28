@@ -14,6 +14,7 @@ setenforce 0
 
 for i in `find /srv -type d -name .git` ; do echo $i; cd `dirname $i`; git status;done
 
+less -Ir galeracmds.log
 
 
 mysql -u glt2017 --password='glt2017' -h 192.168.124.121 -e "CREATE TABLE glt2017 (           id INT,           data VARCHAR(100)         );" glt2017

@@ -1,0 +1,8 @@
+[root@localhost confdrive]# mysql -u glt2017 --password='glt2017' -h 192.168.124.121 -e "CREATE TABLE glt2017 (           id INT,           data VARCHAR(100)         );" glt2017
+[root@localhost confdrive]# mysql -u glt2017 --password='glt2017' -h 192.168.124.121 -e "show tables;" glt2017
++-------------------+
+| Tables_in_glt2017 |
++-------------------+
+| glt2017           |
++-------------------+
+

@@ -1,0 +1,22 @@
+[root@db1 ~]# pcs status
+Cluster name: pcscluster
+WARNING: no stonith devices and stonith-enabled is not false
+Stack: corosync
+Current DC: db1 (version 1.1.15-11.el7_3.4-e174ec8) - partition with quorum
+Last updated: Sat Apr 29 00:45:14 2017		Last change: Sat Apr 29 00:44:05 2017 by hacluster via crmd on db2
+
+3 nodes and 4 resources configured
+
+Online: [ db1 db2 db3 ]
+
+Full list of resources:
+
+ vip_galera	(ocf::heartbeat:IPaddr2):	Started db1
+ Master/Slave Set: galera-master [galera]
+     Masters: [ db1 db2 db3 ]
+
+Daemon Status:
+  corosync: active/enabled
+  pacemaker: active/enabled
+  pcsd: active/enabled
+
