@@ -4,8 +4,8 @@ glt2017:
     - repoconf
     - firewalld
     - hosts
-    - chrony
     - serverpackages
+    - chrony
   'salt*':
     - match: compound
     - salt.formulas

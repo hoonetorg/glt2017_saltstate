@@ -1,1 +1,1 @@
-salt-run --force-color state.orch galera.orchestration saltenv=’glt2017’
+salt-run --force-color state.orch galera.orchestration saltenv=glt2017
