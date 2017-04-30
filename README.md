@@ -11,7 +11,8 @@ Also log-files of a successful orchestration are in this repo.
 salt-call -l all state.highstate
 salt-call -l debug state.highstate test=True
 salt-call -l debug state.sls salt.formulas,salt.master saltenv=glt2017
-salt-call -l debug state.sls salt.formulas,salt.master saltenv=glt2017 test=True```
+salt-call -l debug state.sls salt.formulas,salt.master saltenv=glt2017 test=True
+```
 
 ## fix galera agent, where stock agent (which comes with RHEL/CentOS)is broken with newer versions of Percona XtraDB Cluster 5.6
 ```salt 'db*' cmd.run 'curl -o /usr/lib/ocf/resource.d/heartbeat/galera https://raw.githubusercontent.com/hoonetorg/resource-agents/master/heartbeat/galera; chmod 755 /usr/lib/ocf/resource.d/heartbeat/galera; chown root:root /usr/lib/ocf/resource.d/heartbeat/galera; restorecon /usr/lib/ocf/resource.d/heartbeat/galera'
